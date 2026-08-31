@@ -117,6 +117,17 @@ El análisis de la matriz de confusión muestra un buen desempeño general.
 La categoría Sports presenta el mejor comportamiento, mientras que las
 principales dificultades se observan entre Business y Sci_Tech.
 
+## Conclusiones
+
+En este proyecto se desarrolló un pipeline completo de clasificación supervisada de texto utilizando el corpus AG News. Se reutilizó el preprocesamiento desarrollado en el módulo anterior y se incorporó la vectorización TF-IDF junto con un modelo de Regresión Logística como baseline.
+
+Se experimentaron diferentes configuraciones de `max_features` y `ngram_range`. La configuración seleccionada, con 20.000 características y unigramas más bigramas (`ngram_range=(1,2)`), obtuvo un **Accuracy de 89,65 % y un F1 Macro de 0,8965** sobre el conjunto de prueba.
+
+El modelo presentó un buen desempeño general en las cuatro categorías. La principal dificultad se observó en la diferenciación entre algunas noticias de las categorías **Business** y **Sci_Tech**, mientras que **Sports** mostró el mejor comportamiento.
+
+Este baseline permitirá establecer una referencia para las próximas etapas del proyecto, donde se incorporarán modelos de Deep Learning y se comparará su desempeño con el enfoque clásico basado en TF-IDF.
+
+
 ## Instalación y requisitos
 
 Instalar las dependencias del proyecto:
@@ -124,7 +135,23 @@ Instalar las dependencias del proyecto:
 ```bash
 pip install -r requirements.txt
 
-### Próximos pasos
+Luego, instalar el modelo de idioma de SpaCy:
+
+python -m spacy download en_core_web_sm
+
+Una vez instaladas las dependencias, se puede ejecutar el notebook EDA_NLP_AG_News.ipynb.
+
+
+## Próximos Pasos
 
 Este modelo constituye el baseline del proyecto y permitirá comparar su
 desempeño con modelos de Deep Learning en las siguientes etapas.
+
+## Fuentes y licencia
+
+* **AG News:** corpus de AG (Antonio Gulli), basado en el trabajo de Zhang et al. (2015). Para este proyecto se utiliza la versión proporcionada por la cátedra, con los conjuntos de entrenamiento y prueba ya separados.
+* **BBC News:** dataset de D. Greene & P. Cunningham (2006), incluido en el material proporcionado por la cátedra.
+
+Los datasets utilizados en este proyecto fueron proporcionados por la cátedra de la materia **Data Science III: NLP & Deep Learning** con fines educativos.
+
+Si se publican resultados basados en estos datasets, se recomienda citar las fuentes originales correspondientes.
