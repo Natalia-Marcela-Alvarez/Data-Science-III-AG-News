@@ -117,6 +117,13 @@ El análisis de la matriz de confusión muestra un buen desempeño general.
 La categoría Sports presenta el mejor comportamiento, mientras que las
 principales dificultades se observan entre Business y Sci_Tech.
 
+## Instalación y requisitos
+
+Instalar las dependencias del proyecto:
+
+```bash
+pip install -r requirements.txt
+
 ### Próximos pasos
 
 Este modelo constituye el baseline del proyecto y permitirá comparar su
