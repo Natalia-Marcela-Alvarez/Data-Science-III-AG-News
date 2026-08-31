@@ -53,3 +53,71 @@ import torch; print(torch.cuda.is_available())
 - **BBC News**: dataset de D. Greene & P. Cunningham (2006), publicado para uso no comercial en investigación. Se conservan todos los artículos, con split estratificado 80/20.
 
 Ambos se distribuyen aquí solo con fines educativos. Si publicás resultados, citá las fuentes originales.
+
+
+
+## Mi proyecto — Clasificación de AG News con TF-IDF
+
+### Objetivo
+
+El objetivo de este proyecto es desarrollar un clasificador supervisado
+de noticias utilizando técnicas de Procesamiento de Lenguaje Natural (NLP)
+y Machine Learning clásico.
+
+Se utiliza el dataset AG News proporcionado por la cátedra, compuesto por
+cuatro categorías: World, Sports, Business y Sci_Tech.
+
+### Preprocesamiento
+
+Se reutilizó el pipeline de preprocesamiento desarrollado en el Módulo 2,
+incluyendo limpieza de entidades HTML, eliminación de URLs y caracteres
+especiales, normalización del texto, tokenización, lematización y
+eliminación de stopwords.
+
+### Vectorización TF-IDF
+
+Para transformar los textos en una representación numérica se utilizó
+`TfidfVectorizer`.
+
+Se experimentó con diferentes configuraciones de:
+
+- `max_features`
+- `ngram_range`
+
+Las configuraciones evaluadas fueron:
+
+| Configuración | max_features | ngram_range |
+|---|---:|---|
+| A | 5.000 | (1,1) |
+| B | 10.000 | (1,2) |
+| C | 20.000 | (1,2) |
+
+La configuración C obtuvo el mejor desempeño y fue seleccionada para el
+modelo final.
+
+Es importante destacar que el vectorizador se ajustó únicamente sobre el
+conjunto de entrenamiento mediante `fit_transform`, mientras que sobre el
+conjunto de prueba se utilizó solamente `transform`, evitando así Data
+Leakage.
+
+### Modelo
+
+Se seleccionó Regresión Logística como modelo baseline debido a su buen
+desempeño en problemas de clasificación de texto y su eficiencia para
+trabajar con matrices dispersas generadas por TF-IDF.
+
+### Resultados
+
+La configuración seleccionada alcanzó:
+
+- **Accuracy:** 89,65 %
+- **F1 Macro:** 0,8965
+
+El análisis de la matriz de confusión muestra un buen desempeño general.
+La categoría Sports presenta el mejor comportamiento, mientras que las
+principales dificultades se observan entre Business y Sci_Tech.
+
+### Próximos pasos
+
+Este modelo constituye el baseline del proyecto y permitirá comparar su
+desempeño con modelos de Deep Learning en las siguientes etapas.
