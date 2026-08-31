@@ -130,22 +130,25 @@ Este baseline permitirá establecer una referencia para las próximas etapas del
 
 ## Instalación y requisitos
 
+[svg](https://github.com/Natalia-Marcela-Alvarez/Data-Science-III-AG-News/blob/main/README.md#instalaci%C3%B3n-y-requisitos)
+
 Instalar las dependencias del proyecto:
 
 ```bash
 pip install -r requirements.txt
+```
 
 Luego, instalar el modelo de idioma de SpaCy:
 
+```bash
 python -m spacy download en_core_web_sm
+```
 
-Una vez instaladas las dependencias, se puede ejecutar el notebook EDA_NLP_AG_News.ipynb.
-
+Una vez instaladas las dependencias, se puede ejecutar el notebook `EDA_NLP_AG_News.ipynb`.
 
 ## Próximos Pasos
 
-Este modelo constituye el baseline del proyecto y permitirá comparar su
-desempeño con modelos de Deep Learning en las siguientes etapas.
+Este modelo constituye el baseline del proyecto y permitirá comparar su desempeño con modelos de Deep Learning en las siguientes etapas.
 
 ## Fuentes y licencia
 
@@ -155,3 +158,4 @@ desempeño con modelos de Deep Learning en las siguientes etapas.
 Los datasets utilizados en este proyecto fueron proporcionados por la cátedra de la materia **Data Science III: NLP & Deep Learning** con fines educativos.
 
 Si se publican resultados basados en estos datasets, se recomienda citar las fuentes originales correspondientes.
+
